@@ -67,10 +67,10 @@ def add_score():
         db.session.rollback()
         return jsonify({'error': str(e)}), 500
 
-if __name__ == '__main__':
-    # Initialize the database and add dummy data if empty
-    with app.app_context():
-        db.create_all()
+# Initialize the database and add dummy data if empty
+with app.app_context():
+    db.create_all()
+    try:
         if not Score.query.first():
             dummy_scores = [
                 Score(student_name='Alice Smith', exam_name='Python Basics', score=95),
@@ -80,7 +80,10 @@ if __name__ == '__main__':
             db.session.add_all(dummy_scores)
             db.session.commit()
             print("Initialized SQLite database with dummy data.")
+    except Exception as e:
+        print(f"Database already initialized or error: {e}")
 
+if __name__ == '__main__':
     # Starts the Flask Web Server
     print("Starting Flask Server...")
     app.run(debug=True, port=5000)
