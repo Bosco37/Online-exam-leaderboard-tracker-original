@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz & Leaderboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-brain"></i> Quiz & Leaderboard</h1>
+            <p>Take the quiz, automate your score, and climb the ranks!</p>
+        </header>
+
+        <main>
+            <!-- Quiz Section -->
+            <section class="quiz-section glass-card">
+                <h2 id="quizTitle"><i class="fa-solid fa-clipboard-question"></i> Take the Python Quiz</h2>
+                <form id="quizForm">
+                    <div class="input-group">
+                        <label for="examSelect"><i class="fa-solid fa-book"></i> Select Subject</label>
+                        <select id="examSelect" style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); color: #e2e8f0; font-family: 'Outfit', sans-serif; font-size: 1rem; margin-top: 0.5rem; outline: none; transition: 0.3s;">
+                            <option value="python" style="color: #0f172a; background: white;">Python Basics</option>
+                            <option value="cpp" style="color: #0f172a; background: white;">C++ Basics</option>
+                            <option value="js" style="color: #0f172a; background: white;">JavaScript Basics</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" style="margin-top: 1rem;">
+                        <label for="studentName"><i class="fa-solid fa-user"></i> Your Name</label>
+                        <input type="text" id="studentName" required placeholder="Enter your name">
+                    </div>
+
+                    <div id="questionsContainer">
+                        <!-- Questions will be injected here dynamically -->
+                    </div>
+
+                    <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit & Get Scored</button>
+                    <div id="statusMessage"></div>
+                </form>
+            </section>
+
+            <!-- Leaderboard Section -->
+            <section class="leaderboard-section glass-card">
+                <h2><i class="fa-solid fa-trophy"></i> Live Leaderboard</h2>
+                <div class="table-container">
+                    <table id="leaderboardTable">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Student</th>
+                                <th>Exam</th>
+                                <th>Score</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <tr><td colspan="5" style="text-align:center;">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

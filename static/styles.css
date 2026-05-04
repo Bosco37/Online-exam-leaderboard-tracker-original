@@ -1,0 +1,233 @@
+:root {
+    --bg-color: #0b0f19;
+    --primary: #00f2fe;
+    --secondary: #4facfe;
+    --accent: #fbc2eb;
+    --card-bg: rgba(20, 27, 45, 0.6);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(79, 172, 254, 0.15), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(251, 194, 235, 0.15), transparent 40%);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+main {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+}
+
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    flex: 1;
+    width: 100%;
+}
+
+.glass-card h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quiz-section {
+    flex: 1;
+}
+
+.leaderboard-section {
+    flex: 1.2;
+}
+
+/* Form Styles */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-group input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+}
+
+.question {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--secondary);
+}
+
+.question p {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.question label:hover {
+    color: var(--text-main);
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--primary);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+}
+
+#statusMessage {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.success { color: #4ade80; }
+.error { color: #f87171; }
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1.2rem 1rem;
+    text-align: left;
+}
+
+th {
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.3s;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+td {
+    color: #cbd5e1;
+}
+
+.rank-icon { margin-right: 8px; font-size: 1.2rem; }
+.rank-1 { color: #fbbf24; text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
+.rank-2 { color: #94a3b8; }
+.rank-3 { color: #b45309; }
+
+.score-badge {
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+}
